@@ -276,7 +276,7 @@ class MongoDbAdapter {
 	 * @returns {MongoCursor}
 	 */
 	createCursor(params, isCounting) {
-		const fn = isCounting ? this.collection.countDocuments : this.collection.find;
+		const fn = isCounting ? this.collection.estimatedDocumentCount : this.collection.find;
 		let q;
 		if (params) {
 			// Full-text search
